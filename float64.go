@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"database/sql/driver"
 	"encoding/json"
+	"fmt"
 	"strconv"
 
 	"github.com/sisoftrg/null/convert"
@@ -131,4 +132,12 @@ func (f Float64) Value() (driver.Value, error) {
 		return nil, nil
 	}
 	return f.Float64, nil
+}
+
+// String implements the Stringer interface
+func (f Float64) String() string {
+	if f.Valid {
+		return fmt.Sprintf("Float64(%f)", f.Float64)
+	}
+	return "Float64(invalid)"
 }

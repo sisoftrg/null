@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"database/sql/driver"
 	"encoding/json"
+	"fmt"
 
 	"github.com/sisoftrg/null/convert"
 )
@@ -138,4 +139,12 @@ func (b Bytes) Value() (driver.Value, error) {
 		return nil, nil
 	}
 	return b.Bytes, nil
+}
+
+// String implements the Stringer interface
+func (b Bytes) String() string {
+	if b.Valid {
+		return fmt.Sprintf("Bytes(%02x)", b.Bytes)
+	}
+	return "Bytes(invalid)"
 }

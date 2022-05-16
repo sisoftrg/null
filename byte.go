@@ -5,6 +5,7 @@ import (
 	"database/sql/driver"
 	"encoding/json"
 	"errors"
+	"fmt"
 )
 
 // Byte is an nullable int.
@@ -147,4 +148,12 @@ func (b Byte) Value() (driver.Value, error) {
 		return nil, nil
 	}
 	return []byte{b.Byte}, nil
+}
+
+// String implements the Stringer interface
+func (b Byte) String() string {
+	if b.Valid {
+		return fmt.Sprintf("Byte(%02x)", b.Byte)
+	}
+	return "Byte(invalid)"
 }

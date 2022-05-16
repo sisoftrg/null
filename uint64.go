@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"database/sql/driver"
 	"encoding/json"
+	"fmt"
 	"strconv"
 
 	"github.com/sisoftrg/null/convert"
@@ -146,4 +147,12 @@ func (u Uint64) Value() (driver.Value, error) {
 	}
 
 	return int64(u.Uint64), nil
+}
+
+// String implements the Stringer interface
+func (i Uint64) String() string {
+	if i.Valid {
+		return fmt.Sprintf("Uint64(%d)", i.Uint64)
+	}
+	return "Uint64(invalid)"
 }

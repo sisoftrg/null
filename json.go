@@ -188,3 +188,11 @@ func (j JSON) Value() (driver.Value, error) {
 	}
 	return j.JSON, nil
 }
+
+// String implements the Stringer interface
+func (j JSON) String() string {
+	if j.Valid {
+		return fmt.Sprintf("JSON(%s)", string(j.JSON))
+	}
+	return "JSON(invalid)"
+}

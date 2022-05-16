@@ -5,6 +5,7 @@ import (
 	"database/sql/driver"
 	"encoding/json"
 	"errors"
+	"fmt"
 
 	"github.com/sisoftrg/null/convert"
 )
@@ -147,4 +148,12 @@ func (b Bool) Value() (driver.Value, error) {
 		return nil, nil
 	}
 	return b.Bool, nil
+}
+
+// String implements the Stringer interface
+func (b Bool) String() string {
+	if b.Valid {
+		return fmt.Sprintf("Bool(%t)", b.Bool)
+	}
+	return "Bool(invalid)"
 }

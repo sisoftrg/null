@@ -143,3 +143,11 @@ func (i Int32) Value() (driver.Value, error) {
 	}
 	return int64(i.Int32), nil
 }
+
+// String implements the Stringer interface
+func (i Int32) String() string {
+	if i.Valid {
+		return fmt.Sprintf("Int32(%d)", i.Int32)
+	}
+	return "Int32(invalid)"
+}
