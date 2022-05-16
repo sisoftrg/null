@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 	"strconv"
 
-	"github.com/volatiletech/null/v9/convert"
+	"github.com/sisoftrg/null/convert"
 )
 
 // Int is an nullable int.

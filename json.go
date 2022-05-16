@@ -7,7 +7,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/volatiletech/null/v9/convert"
+	"github.com/sisoftrg/null/convert"
 )
 
 // JSON is a nullable []byte that contains JSON.

@@ -8,7 +8,7 @@ import (
 	"math"
 	"strconv"
 
-	"github.com/volatiletech/null/v9/convert"
+	"github.com/sisoftrg/null/convert"
 )
 
 // Int8 is an nullable int8.
